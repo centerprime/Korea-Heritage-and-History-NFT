@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="3.236.231.250" id="70c54fd6-c09c-4ce7-b4cc-b3a2886e6f85" keyPath="$USER_HOME$/Development/Business/Development/pems folder/chainlink_hackathon.pem" port="22" nameFormat="DESCRIPTIVE" username="ubuntu" />
+    </configs>
+  </component>
+</project>

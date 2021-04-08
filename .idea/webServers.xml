@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7be2e114-9658-4a48-ba50-8c5b578f61ef" name="chainlink">
+        <fileTransfer rootFolder="/var/www/my-react-app" accessType="SFTP" host="3.236.231.250" port="22" sshConfigId="70c54fd6-c09c-4ce7-b4cc-b3a2886e6f85" sshConfig="ubuntu@3.236.231.250:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
