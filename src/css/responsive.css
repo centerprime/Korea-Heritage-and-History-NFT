@@ -1,0 +1,41 @@
+/*==========================
+small device /mobile sm and large
+===========================*/
+
+@media (max-width: 767px) {
+     .main_logo img {
+        padding-left: 0;
+    }
+    .connect_button {
+        background-color: #000;
+        width: 130px;
+        line-height: 40px;
+        right: 0;
+        margin-right: 90px;
+        text-align: center;
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+        margin: auto;
+        padding: 7px 30px;
+    }
+    .connect_button_respons {
+        justify-content: center;
+        width: 100%;
+    }
+    #mmenu {
+        padding: 0;
+    }
+    .about_video{
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 65px;
+        width: 100%;
+        position: absolute;
+        color: #fff;
+        padding: 10px 20px;
+        margin-top: -65px;
+      }
+      .flag{
+          display: none;
+      }
+}

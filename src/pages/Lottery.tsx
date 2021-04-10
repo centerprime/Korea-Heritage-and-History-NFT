@@ -3,17 +3,31 @@ import '../css/style.css';
 import K_logo from '../images/K_logo.png';
 import swap_box from "../images/swap_box.png";
 function Lottery() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
-        <div className="col-lg-6 justify-content-center">
+        <div className="justify-content-center">
             <div className="swap_box" style={{ backgroundImage: `url(${swap_box})` }}>
                 <div className="swap_box_inner">
                     <div className="swap_inner_area">
                         <div className="swap_box_title">
                             KHHN Swap
                         </div>
-                        <div className="lottery_viewer">
-                            KHHN Lottery Viewer
-                            <div className="lottery_viewer_change" id="panel"></div>
+                        <div className="MINING_viewer">
+                            KHHN MINING Viewer
+                            <div className="MINING_viewer_change" id="panel"></div>
                         </div>
 
                         <div className="swap_address_box">

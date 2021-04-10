@@ -6,7 +6,7 @@ import '../src/css/magnific-popup.css';
 import '../src/css/style.css';
 import Swap from "./pages/Swap";
 import Lottery from "./pages/Lottery";
-import Header from "./pages/Header";
+import Main from "./pages/Main";
 import Sidebar from "./pages/Sidebar";
 import Home from "./pages/Home";
 import Viewer from "./pages/Viewer";
@@ -15,7 +15,7 @@ import Viewer from "./pages/Viewer";
 function App() {
     return (
         <Router>
-            <Header/>
+            <Main/>
 
         </Router>
     );

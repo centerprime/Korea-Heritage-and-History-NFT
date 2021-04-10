@@ -5,7 +5,7 @@ import link_logo from '../images/link.png';
 import arrow_down_001 from '../images/arrow_down_001.png';
 import K_logo from '../images/K_logo.png';
 import header_bg_001 from "../images/header_bg_001.png";
-import swap_box from "../images/swap_box.png";
+import swap_box from "../images/swap.png";
 import {useWeb3} from "@openzeppelin/network/lib/react";
 import {ERC20_ABI, INFURA_ROPSTEN, LINK_ROPSTEN, NFT_MARKETPLACE_ABI, NFT_MARKETPLACE_CONTRACT} from "../utils/const";
 
@@ -33,7 +33,8 @@ function Swap() {
             // get allowance
             let allowance = await linkContract.methods.allowance(accounts[0], NFT_MARKETPLACE_CONTRACT).call();
             console.log("allowance Balance : " + allowance);
-
+            let linkDecimals = await linkContract.methods.decimals().call();
+            linkBalance = (Number.parseFloat(linkBalance) / Math.pow(10, Number.parseFloat(linkDecimals))).toFixed(2);
             setApproved(Number.parseFloat(allowance) === 0);
 
         }
@@ -102,7 +103,7 @@ function Swap() {
 
 
     return (
-        <div className="col-lg-6 justify-content-center">
+        <div className="justify-content-center">
             <div className="swap_box" style={{backgroundImage: `url(${swap_box})`}}>
                 <div className="swap_box_inner">
                     <div className="swap_inner_area">
@@ -111,7 +112,10 @@ function Swap() {
                         </div>
                         <div className="swap_address_box">
                             <div className="swap_address_box_title">
-                                From
+                                <div className="from_to">From</div>
+                                <div className="total_amount">
+                                    {balanceLink}
+                                </div>
                             </div>
                             <div className="swap_address_box_inner">
                                 <div className="enter_amount">
