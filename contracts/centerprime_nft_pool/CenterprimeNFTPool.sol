@@ -4,7 +4,7 @@ import "../utils/ownership/Ownership.sol";
 import "../token/ERC20/ERC20.sol";
 import "../token/ERC721/ERC721Full.sol";
 
-contract CenterprimeNFTMarketplace is Ownable {
+contract CenterprimeNFTPool is Ownable {
 
     event Sent(address indexed payee, uint256 amount, uint256 balance);
     event Received(address indexed payer, uint256 tokenId, uint256 amount, uint256 balance);
