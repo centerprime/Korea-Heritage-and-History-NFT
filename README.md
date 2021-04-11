@@ -20,11 +20,11 @@ In order to achieve the purpose of preservation and protection of the establishe
 
 ## Challenges we ran into
 
-Legacy information and content chain layering
-Tokenization of heritage assets
-Chaining of heritage asset certificates
-Compensation through the asset mining pool
-Donation through the estate asset swap pool
+1. Legacy information and content chain layering
+2. Tokenization of heritage assets
+3. Chaining of heritage asset certificates
+4. Compensation through the asset mining pool
+5. Donation through the estate asset swap pool
 
 ## Accomplishments that we're proud of
 
