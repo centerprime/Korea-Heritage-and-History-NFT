@@ -38,9 +38,9 @@ YWe could learn that the current blockchain technology can’t completely blockc
 
 We have set up the next phase of this project as follows:
 
-Establishing DIDs for heritages other than Korea.
-Establish an IPFS chain dedicated to heritage content.
-Establish a utility pool through the established heritage chain.
+* Establishing DIDs for heritages other than Korea.
+* Establish an IPFS chain dedicated to heritage content.
+* Establish a utility pool through the established heritage chain.
 
 We have established three major steps in this way, and if we achieve them, we assure that it will be an important and effective way to convey humanity's proud heritage to our descendants.
 
