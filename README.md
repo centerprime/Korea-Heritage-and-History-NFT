@@ -1,7 +1,5 @@
 # Korea Heritage and History NFT
 
-![image](https://user-images.githubusercontent.com/57883812/114323486-68a8f100-9b60-11eb-9116-119208bed9f5.png)
-
 We did tokenization of Korea's nature Heritages and culture heritages by blockchain technology.
 
 ## Inspiration
