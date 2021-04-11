@@ -159,7 +159,7 @@ function Lottery() {
                 <div className="swap_box_inner">
                     <div className="swap_inner_area">
                         <div className="swap_box_title">
-                            KHHN Swap
+                            KHHN Mining
                         </div>
                         <div className="MINING_viewer">
                             KHHN MINING Viewer
