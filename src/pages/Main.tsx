@@ -15,11 +15,11 @@ import Swap from "./Swap";
 import Lottery from "./Lottery";
 import Viewer from "./Viewer";
 import {useWeb3} from '@openzeppelin/network/react';
-import {ERC20_ABI, INFURA_ROPSTEN, LINK_ROPSTEN} from "../utils/const";
+import {ERC20_ABI, INFURA_KOVAN, LINK_KOVAN} from "../utils/const";
 
 function Main() {
 
-    const web3Context = useWeb3(INFURA_ROPSTEN);
+    const web3Context = useWeb3(INFURA_KOVAN);
     const {lib: web3, networkId, accounts, providerName} = web3Context;
 
     // Methods for requesting accounts access
@@ -36,7 +36,7 @@ function Main() {
             ethBalance = await web3.eth.getBalance(accounts[0]);
             ethBalance = (Number.parseFloat(ethBalance) / Math.pow(10, 18)).toFixed(8);
             // @ts-ignore
-            const linkContract = new web3.eth.Contract(ERC20_ABI, LINK_ROPSTEN);
+            const linkContract = new web3.eth.Contract(ERC20_ABI, LINK_KOVAN);
             linkBalance = await linkContract.methods.balanceOf(accounts[0]).call();
             console.log("Balance : " + linkBalance);
             let linkDecimals = await linkContract.methods.decimals().call();
@@ -80,13 +80,12 @@ function Main() {
                                 </div>
                             </div>
                             <div className="col-lg-1 connect_button_respons">
-
                                 {accounts && accounts.length > 0 ? (
                                     <div className="connected_address">{accounts[0]}</div>
                                 ) : !!networkId && providerName !== 'infura' ? (
                                     <a href="#" onClick={requestAccess} className="connect_button">Connect</a>
                                 ) : (
-                                    <div>No accounts access</div>
+                                    <div>No accounts access or Metamask not installed</div>
                                 )}
                             </div>
                         </div>
@@ -187,7 +186,7 @@ function Main() {
                             <li><Link to="/khhn_swap">
                                 KHHN SWAP
                             </Link></li>
-                            <li><Link to="/khhn_lottery">KHHN LOTTERY</Link></li>
+                            <li><Link to="/khhn_lottery">KHHN MINING</Link></li>
                             <li><Link to="/khhn_viewer">KHHN VIEWER</Link></li>
                         </ul>
                     </div>

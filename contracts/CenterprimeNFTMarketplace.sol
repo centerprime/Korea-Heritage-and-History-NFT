@@ -58,7 +58,7 @@ contract CenterprimeNFTMarketplace is Ownable {
     * @param _tokenId uint256 token ID
     * @param _amount uint256 amount of ERC20 Link
     */
-    function purchaseTokenLink(uint256 _tokenId,uint256 _amount) public returns (bool) {
+    function purchaseTokenLink(uint256 _tokenId, uint256 _amount) public returns (bool) {
         require(msg.sender != address(0) && msg.sender != address(this),"wrong addresses interaction");
         // require(_amount >= currentPrice,"not enough Link funds");
         address temp = tokenSeller[_tokenId];

@@ -7,10 +7,10 @@ import K_logo from '../images/K_logo.png';
 import header_bg_001 from "../images/header_bg_001.png";
 import swap_box from "../images/swap.png";
 import {useWeb3} from "@openzeppelin/network/lib/react";
-import {ERC20_ABI, INFURA_ROPSTEN, LINK_ROPSTEN, NFT_MARKETPLACE_ABI, NFT_MARKETPLACE_CONTRACT} from "../utils/const";
+import {ERC20_ABI, INFURA_KOVAN, LINK_KOVAN, NFT_MARKETPLACE_ABI, NFT_MARKETPLACE_CONTRACT} from "../utils/const";
 
 function Swap() {
-    const web3Context = useWeb3(INFURA_ROPSTEN);
+    const web3Context = useWeb3(INFURA_KOVAN);
     const {lib: web3, networkId, accounts, providerName} = web3Context;
     // Methods for requesting accounts access
     const requestAuth = (web3Context: any) => web3Context.requestAuth();
@@ -25,7 +25,7 @@ function Swap() {
         if (accounts && accounts.length > 0) {
             ethBalance = await web3.eth.getBalance(accounts[0]);
             // @ts-ignore
-            const linkContract = new web3.eth.Contract(ERC20_ABI, LINK_ROPSTEN);
+            const linkContract = new web3.eth.Contract(ERC20_ABI, LINK_KOVAN);
             linkBalance = await linkContract.methods.balanceOf(accounts[0]).call();
 
             console.log("Link Balance : " + linkBalance);
@@ -52,23 +52,27 @@ function Swap() {
     }, [accounts, getBalance, networkId]);
 
 
-    const [linkAmount, setLinkAmount] = useState('0');
+    const [linkAmount, setLinkAmount] = useState('0.01');
     const [khhnAmount, setKhhnAmount] = useState('0');
+    const [swapTx, setSwapTx] = useState("");
 
+    const [loadingText, setLoadingText] = useState("");
 
     async function swap() {
         try {
-            let fromLinkAmount = Number.parseFloat(linkAmount);
+            let fromLinkAmount = linkAmount;
             let toKhhnAmount = Number.parseFloat(khhnAmount);
+
+            console.log("KhhnAmount : " + toKhhnAmount);
 
             let owner = (accounts ?? "")[0]
 
             // @ts-ignore
             const nftMarketplaceContract = new web3.eth.Contract(NFT_MARKETPLACE_ABI, NFT_MARKETPLACE_CONTRACT);
-            let amount = web3.utils.toWei('0.01', 'ether')
+            let amount = web3.utils.toWei(fromLinkAmount, 'ether');
 
             // @ts-ignore
-            const linkContract = new web3.eth.Contract(ERC20_ABI, LINK_ROPSTEN);
+            const linkContract = new web3.eth.Contract(ERC20_ABI, LINK_KOVAN);
 
             let linkAllowanceToNFT = await linkContract.methods.allowance(owner, NFT_MARKETPLACE_CONTRACT).call();
             linkAllowanceToNFT = web3.utils.toWei(linkAllowanceToNFT, 'ether');
@@ -76,28 +80,29 @@ function Swap() {
             console.log("Amount : " + amount);
             if (Number.parseFloat(linkAllowanceToNFT) <= Number.parseFloat(amount)) {
                 console.log("Need Allowance : " + linkAllowanceToNFT);
+                setLoadingText("Loading............. Approve");
                 let approveResult = await linkContract.methods.approve(NFT_MARKETPLACE_CONTRACT, amount).send({
                     from: owner
                 });
-
+                setLoadingText("");
                 console.log(approveResult);
                 return;
             }
             console.log("Enough Allowance : " + linkAllowanceToNFT);
-
-            let result = await nftMarketplaceContract.methods.purchaseTokenLink(4, amount).send(
+            setLoadingText("Loading............. SWAP");
+            let result = await nftMarketplaceContract.methods.purchaseTokenLink(toKhhnAmount, amount).send(
                 {
                     from: owner
                 }
             );
+            setSwapTx(result.transactionHash);
+            setLoadingText("");
             console.log(result);
         } catch (e) {
             console.log(e);
+            setLoadingText("");
+            alert(e);
         }
-
-    }
-
-    async function approve() {
 
     }
 
@@ -121,7 +126,7 @@ function Swap() {
                                 <div className="enter_amount">
                                     <input type="text " className="enter_amount_input" placeholder="0.0"
                                            value={linkAmount} onChange={e => setLinkAmount(e.target.value)}
-                                           spellCheck="false" inputMode="decimal"/>
+                                           spellCheck="false" inputMode="decimal" readOnly={!!linkAmount}/>
                                     <div className="company_logo">
                                         <div className="logo"><img src={link_logo} alt=""/></div>
                                         LINK
@@ -134,7 +139,7 @@ function Swap() {
                         </div>
                         <div className="swap_address_box">
                             <div className="swap_address_box_title">
-                                To
+                                Token Id
                             </div>
                             <div className="swap_address_box_inner">
                                 <div className="enter_amount">
@@ -148,15 +153,21 @@ function Swap() {
                                 </div>
                             </div>
                         </div>
-
+                        <div>
+                            {loadingText}
+                        </div>
+                        <div>
+                            {swapTx && swapTx.length > 0 ? (
+                                <p>Tx : <a href={'https://kovan.etherscan.io/tx/' + swapTx} target="_blank">SwapTx</a></p>) : (<p></p>)}
+                        </div>
                     </div>
                     {accounts && accounts.length ? (
                         isApproved ? <div className="button_swap" onClick={async () => {
                                 await swap();
                             }}> Swap</div> :
                             <div className="button_swap" onClick={async () => {
-                                await approve();
-                            }}> Approve</div>
+                                await swap();
+                            }}> Swap</div>
                     ) : !!networkId && providerName !== 'infura' ? (
                         <div onClick={requestAccess} className="button_swap"> Unlock wallet</div>
                     ) : (
