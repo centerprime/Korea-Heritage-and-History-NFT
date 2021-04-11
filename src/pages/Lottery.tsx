@@ -24,6 +24,17 @@ token_uri_map.add('6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875
 token_uri_map.add('d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35', 'https://www.youtube.com/watch?v=2nO2CE2bcNQ&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=2');
 token_uri_map.add('4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce', 'https://www.youtube.com/watch?v=cKYEjwV5iyI&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=3');
 token_uri_map.add('4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a', 'https://www.youtube.com/watch?v=VHd6EYqSekI&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=4');
+token_uri_map.add('ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d', 'https://www.youtube.com/watch?v=8tKd0P_UrN8&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=5');
+token_uri_map.add('e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683', 'https://www.youtube.com/watch?v=DQ6e3t5ahlY&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=6');
+token_uri_map.add('7902699be42c8a8e46fbbb4501726517e86b22c56a189f7625a6da49081b2451', 'https://www.youtube.com/watch?v=ThvYsTkGeIQ&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=7');
+token_uri_map.add('2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3', 'https://www.youtube.com/watch?v=xFgI79Z_U6s&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=8');
+token_uri_map.add('19581e27de7ced00ff1ce50b2047e7a567c76b1cbaebabe5ef03f7c3017bb5b7', 'https://www.youtube.com/watch?v=-SSZr4MJCvc&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=9');
+token_uri_map.add('4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5', 'https://www.youtube.com/watch?v=E2xfbq_lsOk&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=10');
+token_uri_map.add('4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8', 'https://www.youtube.com/watch?v=iR7n7D6yYwE&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=11');
+token_uri_map.add('6b51d431df5d7f141cbececcf79edf3dd861c3b4069f0b11661a3eefacbba918', 'https://www.youtube.com/watch?v=67bcR2mHh-0&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=12');
+token_uri_map.add('3fdba35f04dc8c462986c992bcf875546257113072a909c162f7e470e581e278', 'https://www.youtube.com/watch?v=kaw8UcjRmgE&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=13');
+token_uri_map.add('8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61', 'https://www.youtube.com/watch?v=SLlWqT3CQt0&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=14');
+token_uri_map.add('e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb', 'https://www.youtube.com/watch?v=uDcJVY4iUoA&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=17');
 
 function Lottery() {
     const web3Context = useWeb3(INFURA_KOVAN);

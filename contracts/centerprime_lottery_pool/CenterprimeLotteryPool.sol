@@ -20,7 +20,7 @@ interface IERC20 {
 }
 
 
-contract CenterPrimeVRF is VRFConsumerBase {
+contract CenterprimeLotteryPool is VRFConsumerBase {
     bytes32 internal keyHash;
     uint256 internal fee;
     // random Movie Id
@@ -116,7 +116,7 @@ contract CenterPrimeVRF is VRFConsumerBase {
         uint256 tokenId = requestIdToTokenId[requestId];
         // tokenId response as received
         tokenIdToResponse[tokenId] = true;
-        // tokenId
+        // mapping tokenId with randomMovieId
         tokenIdToRandomResult[tokenId] = randomMovieId;
         // get tokenId owner
         address ownerOfTokenId = tokenIdToOwnerAddress[tokenId];

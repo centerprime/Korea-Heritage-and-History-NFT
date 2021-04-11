@@ -1,8 +1,8 @@
 pragma solidity ^0.5.17;
 
-import "https://github.com/snaketh4x0r/openzeppelin-contracts/blob/master/contracts/ownership/Ownable.sol";
-import "https://github.com/snaketh4x0r/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721Full.sol";
-import "https://github.com/snaketh4x0r/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
+import "../utils/ownership/Ownership.sol";
+import "../token/ERC20/ERC20.sol";
+import "../token/ERC721/ERC721Full.sol";
 
 contract CenterprimeNFTMarketplace is Ownable {
 

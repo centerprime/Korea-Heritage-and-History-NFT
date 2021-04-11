@@ -1,8 +1,8 @@
 pragma solidity ^0.8.0;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol";
+import "./ERC721/ERC721.sol";
 
-contract ERC721_TOKEN is ERC721 {
+contract KHHN_NFT is ERC721 {
 
     constructor (string memory _name, string memory _symbol) public
     ERC721(_name, _symbol)
