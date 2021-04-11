@@ -19,12 +19,11 @@ Our purpose is to safeguard, preserve and pass on our heritage to future generat
 In order to achieve the purpose of preservation and protection of the established heritage, we aim to achieve the purpose by utilizing the immutability and irreversibility characteristics of the blockchain NFT technology, and by converting the value and information of the heritage by smart contracting.
 
 ## Challenges we ran into
-
-1. Legacy information and content chain layering
-2. Tokenization of heritage assets
-3. Chaining of heritage asset certificates
-4. Compensation through the asset mining pool
-5. Donation through the estate asset swap pool
+* Legacy information and content chain layering
+* Tokenization of heritage assets
+* Chaining of heritage asset certificates
+* Compensation through the asset mining pool
+* Donation through the estate asset swap pool
 
 ## Accomplishments that we're proud of
 
