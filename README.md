@@ -2,6 +2,10 @@
 
 We did tokenization of Korea's nature Heritages and culture heritages by blockchain technology.
 
+## Submitted to
+
+Chainlink Virtual Hackathon Spring 2021
+
 ## Inspiration
 
 For humanity, heritage provides countless amounts of information and value. Therefore, the present humanity recognizes the value and importance of the heritage, We are uniting to preserve it. However, due to continuous environmental pollution, war, disaster, etc., heritages are being destroyed. If these things continue, it will be our responsibility if we do not communicate our heritage clearly and accurately to our future descendants. Therefore, we have a sense of purpose that we must clearly record the value and information of the heritage before it is destroyed by environmental pollution, disaster, disaster, etc. and deliver it to our descendants. Using the immutability and irreversibility characteristics of the blockchain technology, NFT, we want to clearly and accurately record and prove the information of the heritage and deliver it to our descendants.
