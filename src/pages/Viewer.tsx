@@ -24,23 +24,12 @@ function Viewer() {
                             {/*    </div>*/}
                             {/*</div>*/}
                         </div>
-                        {/*<h3><a href="#">Featured News</a></h3>*/}
-                        {/*<div className="featured-parag">*/}
-                        {/*    <p>*/}
-                        {/*        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non sapien id*/}
-                        {/*        risus*/}
-                        {/*        ultricies dignissim quis at tellus. Etiam euismod viverra urna, ut facilisis erat*/}
-                        {/*        facilisis*/}
-                        {/*        vitae. Fusce ullamcorper ultricies egestas.*/}
-                        {/*    </p>*/}
-                        {/*    <p>*/}
-                        {/*        Consectetur adipiscing elit. Pellentesque non sapien id risus ultricies dignissim*/}
-                        {/*        quis at*/}
-                        {/*        tellus. Etiam euismod viverra urna, ut facilisis erat facilisis vitae. Fusce*/}
-                        {/*        ullamcorper*/}
-                        {/*        ultricies egestas. Facilisis erat facilisis vitae ullamcorper ultricies egestas.*/}
-                        {/*    </p>*/}
-                        {/*</div>*/}
+                        <h3><a href="#">KHHN VIEWER</a></h3>
+                        <div className="featured-parag">
+                            <p>
+                               You can watch mined heritage content video in live through KHHN Viewer
+                            </p>
+                        </div>
                     </div>
 
                 </div>
