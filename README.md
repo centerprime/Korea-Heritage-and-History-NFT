@@ -1,6 +1,6 @@
 # Korea Heritage and History NFT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We did tokenization of Korea's nature Heritages and culture heritages by blockchain technology.
 
 ## Inspiration
 
