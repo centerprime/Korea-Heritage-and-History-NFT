@@ -7,7 +7,6 @@ import '../src/css/style.css';
 import Swap from "./pages/Swap";
 import Lottery from "./pages/Lottery";
 import Main from "./pages/Main";
-import Sidebar from "./pages/Sidebar";
 import Home from "./pages/Home";
 import Viewer from "./pages/Viewer";
 

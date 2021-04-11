@@ -273,7 +273,7 @@ h1 {
 .MINING_viewer {
   width: 100%;
   height: 145px;
-  background-color: #fff;
+  background-color: #000;
   margin-bottom: 13px;
   color: #a4a4a4;
   text-align: center;
@@ -295,7 +295,17 @@ h1 {
   height: 145px;
   margin-top: -140px;
 }
-
+.challenges_area{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.challenges_box{
+  width: 150px;
+  text-align: center;
+  padding: 10px;
+}
 /* swap area end */
 
 #page-content {
@@ -406,6 +416,9 @@ h1 {
   max-width: 580px;
   height: 300px;
   overflow: hidden;
+  background: #000;
+  text-align: center;
+  line-height: 300px;
 }
 
 div.featured-parag {

@@ -16,6 +16,7 @@ import Lottery from "./Lottery";
 import Viewer from "./Viewer";
 import {useWeb3} from '@openzeppelin/network/react';
 import {ERC20_ABI, INFURA_KOVAN, LINK_KOVAN} from "../utils/const";
+import home_icons_001 from "../images/home_icons_001.png";
 
 function Main() {
 
@@ -67,15 +68,9 @@ function Main() {
                                 <div id="page-title">
                                     <h1>Korea Heritage and History NFT </h1>
                                     <p>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT Korean Heritage
-                                        and
-                                        History NFT
-                                        <br/>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT Korean
-                                        Heritage and
-                                        History NFT
-                                        <br/>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT
+                                        We did tokenization of Korea's nature <br/>
+                                        Heritages and culture heritages by blockchain <br/>
+                                        technology.
                                     </p>
                                 </div>
                             </div>
@@ -102,15 +97,9 @@ function Main() {
                                 <div id="page-title">
                                     <h1>Korea Heritage and History NFT </h1>
                                     <p>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT Korean Heritage
-                                        and
-                                        History NFT
-                                        <br/>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT Korean
-                                        Heritage and
-                                        History NFT
-                                        <br/>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT
+                                        We did tokenization of Korea's nature <br/>
+                                        Heritages and culture heritages by blockchain <br/>
+                                        technology.
                                     </p>
                                 </div>
                             </div>
@@ -130,15 +119,9 @@ function Main() {
                                 <div id="page-title">
                                     <h1>Korea Heritage and History NFT </h1>
                                     <p>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT Korean Heritage
-                                        and
-                                        History NFT
-                                        <br/>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT Korean
-                                        Heritage and
-                                        History NFT
-                                        <br/>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT
+                                        We did tokenization of Korea's nature <br/>
+                                        Heritages and culture heritages by blockchain <br/>
+                                        technology.
                                     </p>
                                 </div>
                             </div>
@@ -158,15 +141,9 @@ function Main() {
                                 <div id="page-title">
                                     <h1>Korea Heritage and History NFT </h1>
                                     <p>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT Korean Heritage
-                                        and
-                                        History NFT
-                                        <br/>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT Korean
-                                        Heritage and
-                                        History NFT
-                                        <br/>
-                                        Korea Heritage and History NFT Korea Heritage and History NFT
+                                        We did tokenization of Korea's nature <br/>
+                                        Heritages and culture heritages by blockchain <br/>
+                                        technology.
                                     </p>
                                 </div>
                             </div>
@@ -181,6 +158,9 @@ function Main() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-4">
+                        <div className="home_icons_001">
+                            <img src={home_icons_001} alt=""/>
+                        </div>
                         <ul id="mmenu">
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/khhn_swap">

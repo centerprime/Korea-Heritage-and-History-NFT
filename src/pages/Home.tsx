@@ -13,9 +13,7 @@ import Order_of_use3 from '../images/Order_of_use3.png'
 function Home() {
     return (
         <div className="home_area">
-            <div className="home_icons_001">
-                <img src={home_icons_001} alt=""/>
-            </div>
+
             <div className="home_inner_box">
                 <div className="hackahtun_title_001">UNESCO & HERITAGE</div>
                 <div className="about_cm">
@@ -119,7 +117,44 @@ function Home() {
                     smart contracted the mining, reward, and donation pool of the heritage that preserves the value
                     of the
                     Korean heritage through the non-fungable token technology (NFT) of the blockchain.</p>
-
+                <div className="hackahtun_title_003">Project</div>
+                <p className="hackahtun_text_001">
+                    Korea Heritage and History NFT <br/>
+                    We did tokenization of Korea's nature
+                    Heritages and culture heritages by blockchain
+                    technology. This token's name is
+                    "KHHN- Korea Heritage and History NFT"
+                </p>
+                <div className="hackahtun_title_003">Challenges</div>
+                <p className="hackahtun_text_001">
+                   <div className="challenges_area">
+                       <div className="challenges_box">
+                           <p>01</p>
+                           Layering of heritage
+                           information and content chains
+                       </div>
+                       <div className="challenges_box">
+                           <p>02</p>
+                           Tokenization of
+                           heritage assets
+                       </div>
+                       <div className="challenges_box">
+                           <p>03</p>
+                           Heritage asset
+                           authentication chaining
+                       </div>
+                       <div className="challenges_box">
+                           <p>04</p>
+                           Compensation through
+                           heritage asset mining pool
+                       </div>
+                       <div className="challenges_box">
+                           <p>05</p>
+                           Donation through
+                           heritage asset swap pool
+                       </div>
+                   </div>
+                </p>
             </div>
             <div className="hackahtun_title_001">[ Order of Use ]</div>
             <div className="home_order_of_use">
