@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# Korea Heritage and History NFT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We did tokenization of Korea's nature Heritages and culture heritages by blockchain technology.
 
-## Available Scripts
+## Submitted to
 
-In the project directory, you can run:
+Chainlink Virtual Hackathon Spring 2021
 
-### `npm start`
+## Inspiration
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+For humanity, heritage provides countless amounts of information and value. Therefore, the present humanity recognizes the value and importance of the heritage, We are uniting to preserve it. However, due to continuous environmental pollution, war, disaster, etc., heritages are being destroyed. If these things continue, it will be our responsibility if we do not communicate our heritage clearly and accurately to our future descendants. Therefore, we have a sense of purpose that we must clearly record the value and information of the heritage before it is destroyed by environmental pollution, disaster, disaster, etc. and deliver it to our descendants. Using the immutability and irreversibility characteristics of the blockchain technology, NFT, we want to clearly and accurately record and prove the information of the heritage and deliver it to our descendants.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## What it does
 
-### `npm test`
+Our purpose is to safeguard, preserve and pass on our heritage to future generations. For this, Republic of korea, a peninsula country in East Asia and at the same time ranked in the top 10 in the world economy, we intend to record the heritage information and safely preserve the value by converting the natural and cultural heritage of Korea, which has a history of 5,000 years into NFT tokens.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How we built it
 
-### `npm run build`
+In order to achieve the purpose of preservation and protection of the established heritage, we aim to achieve the purpose by utilizing the immutability and irreversibility characteristics of the blockchain NFT technology, and by converting the value and information of the heritage by smart contracting.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Challenges we ran into
+* Legacy information and content chain layering
+* Tokenization of heritage assets
+* Chaining of heritage asset certificates
+* Compensation through the asset mining pool
+* Donation through the estate asset swap pool
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Accomplishments that we're proud of
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We have demonstrated the transparency of the value of the heritage assets by tokenizing the human heritage. This shows that we have reached a sufficient level to achieve our goals. In addition, we proved that various media contents (images, videos, sounds, etc.) containing information on numerous existing Korean heritages can be actually operated and operated by IPFS chaining. We have shown that this is how information about the world's many heritages is clearly preserved, values are preserved, and can be learned from anywhere in the world.
 
-### `npm run eject`
+## What we learned
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+YWe could learn that the current blockchain technology can’t completely blockchainizes the information possessed by the heritage, so the current state of the technology of the content and the chain is insufficient. In addition, before the work of NFT tokenization of heritage content proceeds, it was found that the heritage DID block should be the basis and the heritage content NFT tokens should be chained. We have found that the current industry link is still weak, and we are convinced that this will be one of the important issues to come in the future.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## What's next for Korea Heritage and History NFT
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+We have set up the next phase of this project as follows:
 
-## Learn More
+* Establishing DIDs for heritages other than Korea.
+* Establish an IPFS chain dedicated to heritage content.
+* Establish a utility pool through the established heritage chain.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+We have established three major steps in this way, and if we achieve them, we assure that it will be an important and effective way to convey humanity's proud heritage to our descendants.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
