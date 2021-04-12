@@ -98,11 +98,6 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
         return baseURI;
     }
 
-    function _setTokenURI(uint256 tokenId, string memory URI) internal virtual {
-        _tokenURIs[tokenId] = URI;
-    }
-
-
     /**
      * @dev Base URI for computing {tokenURI}. Empty by default, can be overriden
      * in child contracts.
@@ -111,7 +106,9 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
         return "";
     }
 
-
+    function _setIPFSHASH( uint256 tokenId, string memory _ipfshash) internal virtual {
+        _tokenURIs[tokenId] = _ipfshash;
+    }
 
     /**
      * @dev See {IERC721-approve}.

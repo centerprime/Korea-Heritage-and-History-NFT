@@ -2,12 +2,11 @@ pragma solidity ^0.8.0;
 
 import "./ERC721/ERC721.sol";
 
-contract KHHN_NFT is ERC721 {
+contract ERC721_TOKEN is ERC721 {
 
-    constructor (string memory _name, string memory _symbol) public
-    ERC721(_name, _symbol)
-    {
-    }
+
+    constructor () public ERC721("Korea Heritage and History NFT", "KHHN")
+    {}
 
     /**
     * create NFT token
@@ -15,11 +14,12 @@ contract KHHN_NFT is ERC721 {
     function mintUniqueTokenTo(
         address _to,
         uint256 _tokenId,
-        string memory _tokenURI
+        string memory  _IPFSHASH
     ) public
     {
         super._mint(_to, _tokenId);
-        // super._setTokenURI(_tokenId, _tokenURI);
+        super._setIPFSHASH(_tokenId, _IPFSHASH);
     }
+
 
 }
