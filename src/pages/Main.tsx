@@ -181,7 +181,7 @@ function Main() {
                             <li><Link to="/khhn_viewer">KHHN VIEWER</Link></li>
                         </ul>
                     </div>
-                    <div className="col-lg-4">
+                    <div className="col-lg-8">
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route path="/khhn_swap" component={Swap}/>
@@ -189,6 +189,7 @@ function Main() {
                             <Route path="/khhn_viewer" component={Viewer}/>
                         </Switch>
                     </div>
+
                 </div>
             </div>
         </div>

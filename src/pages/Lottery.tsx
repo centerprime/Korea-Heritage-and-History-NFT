@@ -2,6 +2,11 @@ import React, {useCallback, useState} from 'react';
 import '../css/style.css';
 import K_logo from '../images/K_logo.png';
 import swap_box from "../images/lottery.png";
+import mining_guide_001 from "../images/mining_guide_001.png";
+import mining_guide_002 from "../images/mining_guide_002.png";
+import mining_guide_003 from "../images/mining_guide_003.png";
+import mining_guide_004 from "../images/mining_guide_004.png";
+import mining_guide_005 from "../images/mining_guide_005.png";
 import {useWeb3} from "@openzeppelin/network/lib/react";
 
 import Dictionary, {
@@ -14,7 +19,6 @@ import Dictionary, {
     ERC721_CONTRACT,
     NFT_MARKETPLACE_CONTRACT
 } from "../utils/const";
-import Web3 from "web3";
 // // @ts-ignore
 // TOKEN_URI["6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"] = "https://www.youtube.com/watch?v=Ksp8Juzqw3w&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl"
 // TOKEN_URI["d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"] = "https://www.youtube.com/watch?v=2nO2CE2bcNQ&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=2"
@@ -38,10 +42,7 @@ token_uri_map.add('8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99
 token_uri_map.add('e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb', 'https://www.youtube.com/watch?v=uDcJVY4iUoA&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=17');
 
 function Lottery() {
-
-    var provider = new Web3.providers.HttpProvider(INFURA_KOVAN);
-    // @ts-ignore
-    const web3Context = useWeb3(provider);
+    const web3Context = useWeb3(INFURA_KOVAN);
     const {lib: web3, networkId, accounts, providerName} = web3Context;
     // Methods for requesting accounts access
     const requestAuth = (web3Context: any) => web3Context.requestAuth();
@@ -139,7 +140,6 @@ function Lottery() {
             if (randomResult_RequestId != 0) {
                 clearInterval(interval);
                 console.log("TokenId : " + tokenId);
-
                 // eslint-disable-next-line eqeqeq
                 if (randomResult_RequestId == tokenId) {
                     var tokenURI = await nftErc721Contract.methods.tokenURI(tokenId).call();
@@ -147,9 +147,8 @@ function Lottery() {
                     var youtubeURL = token_uri_map.getItem(tokenURI);
                     console.log("TokenURI youtube url : " + youtubeURL);
                     // eslint-disable-next-line no-useless-concat
-                    alert("Your Token ID :  " + tokenId + " Movie ID : " + randomResult_RequestId + " SUCCESS\n" + " Youtube URL : " + youtubeURL);
+                    alert("SUCCESS\n" + " Youtube URL : " + youtubeURL);
                 } else {
-                    // eslint-disable-next-line no-useless-concat
                     alert("NOT MATCH\n" + "Token ID : " + tokenId + " MovieID : " + randomResult_RequestId)
                 }
 
@@ -160,50 +159,112 @@ function Lottery() {
 
 
     return (
-        <div className="justify-content-center">
-            <div className="swap_box" style={{backgroundImage: `url(${swap_box})`}}>
-                <div className="swap_box_inner">
-                    <div className="swap_inner_area">
-                        <div className="swap_box_title">
-                            KHHN Mining
-                        </div>
-                        <div className="MINING_viewer">
-                            KHHN MINING Viewer
-                            <div className="MINING_viewer_change" id="panel"></div>
-                        </div>
+        <div className="row">
+            <div className="col-lg-6">
+                <div className="justify-content-start">
+                    <div className="swap_box" style={{backgroundImage: `url(${swap_box})`}}>
+                        <div className="swap_box_inner">
+                            <div className="swap_inner_area">
+                                <div className="swap_box_title">
+                                    KHHN Mining
+                                </div>
+                                <div className="MINING_viewer">
+                                    KHHN MINING Viewer
+                                    <div className="MINING_viewer_change" id="panel"></div>
+                                </div>
 
-                        <div className="swap_address_box">
-                            <div className="swap_address_box_title">
-                                Token Id
-                            </div>
-                            <div className="swap_address_box_inner">
-                                <div className="enter_amount">
-                                    <input type="text " className="enter_amount_input" placeholder="0.0"
-                                           value={khhnAmount} onChange={e => setKhhnAmount(e.target.value)}
-                                           spellCheck="false" inputMode="decimal"/>
-                                    <div className="company_logo">
-                                        <div className="logo"><img src={K_logo} alt=""/></div>
-                                        KHHN
+                                <div className="swap_address_box">
+                                    <div className="swap_address_box_title">
+                                        Token Id
+                                    </div>
+                                    <div className="swap_address_box_inner">
+                                        <div className="enter_amount">
+                                            <input type="text " className="enter_amount_input" placeholder="0.0"
+                                                   value={khhnAmount} onChange={e => setKhhnAmount(e.target.value)}
+                                                   spellCheck="false" inputMode="decimal"/>
+                                            <div className="company_logo">
+                                                <div className="logo"><img src={K_logo} alt=""/></div>
+                                                KHHN
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div>
+                                    {loadingText}
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            {loadingText}
+                            {accounts && accounts.length ? (
+                                isApproved ? <div className="button_swap" onClick={async () => {
+                                        await draw();
+                                    }}> Upload</div> :
+                                    <div className="button_swap" onClick={async () => {
+                                        await draw();
+                                    }}> Approve</div>
+                            ) : !!networkId && providerName !== 'infura' ? (
+                                <div onClick={requestAccess} className="button_swap"> Unlock wallet</div>
+                            ) : (
+                                <div>No accounts access</div>
+                            )}
                         </div>
                     </div>
-                    {accounts && accounts.length ? (
-                        isApproved ? <div className="button_swap" onClick={async () => {
-                                await draw();
-                            }}> Upload</div> :
-                            <div className="button_swap" onClick={async () => {
-                                await draw();
-                            }}> Approve</div>
-                    ) : !!networkId && providerName !== 'infura' ? (
-                        <div onClick={requestAccess} className="button_swap"> Unlock wallet</div>
-                    ) : (
-                        <div>No accounts access</div>
-                    )}
+                </div>
+            </div>
+            <div className="col-lg-6">
+                <div className="home_area_002">
+                    <div className="hackahtun_title_001">Guide</div>
+                    <div className="guide_box">
+                        <div className="hackahtun_title_002">
+                            Step 1
+                        </div>
+                        <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_001})`}}>
+                        </div>
+                        <p className="hackahtun_text_001">
+                            15. Enter your Token ID then click Upload <br/>
+                            16. You will see Loading….. Approve and MetaMask Popup <br/>
+                            17. Click Confirm and wait until disappearing  Loading….. Approve. Then click Upload again
+                        </p>
+                    </div>
+                    <div className="guide_box">
+                        <div className="hackahtun_title_002">
+                            Step 2
+                        </div>
+                        <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_002})`}}>
+                        </div>
+                        <p className="hackahtun_text_001">
+                            18. Click Upload and you will see Loading…. DRAWING <br/>
+                            19. Click Confirm and wait until disappearing  Loading….. DRAWING
+                        </p>
+                    </div>
+                    <div className="guide_box">
+                        <div className="hackahtun_title_002">
+                            Step 3
+                        </div>
+                        <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_003})`}}>
+                        </div>
+                        <p className="hackahtun_text_001">
+                            20. This is result popup.(your Token ID does not match with Movie ID)  That means you lost try again :)
+                        </p>
+                    </div>
+                    <div className="guide_box">
+                        <div className="hackahtun_title_002">
+                            Step 4
+                        </div>
+                        <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_004})`}}>
+                        </div>
+                        <p className="hackahtun_text_001">
+                            21. This is success result popup. (your Token ID matches with Movie ID) Congratulations!!! :)
+                        </p>
+                    </div>
+                    <div className="guide_box">
+                        <div className="hackahtun_title_002">
+                            Step 5
+                        </div>
+                        <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_005})`}}>
+                        </div>
+                        <p className="hackahtun_text_001">
+                            22. If you want to disconnect wallet click Lock
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
