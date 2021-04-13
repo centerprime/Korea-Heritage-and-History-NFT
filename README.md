@@ -1,10 +1,11 @@
-# Korea Heritage and History NFT
+<img src="http://centerprime.technology/static/images/github/KHHN_background.jpg">
 
 We did tokenization of Korea's nature Heritages and culture heritages by blockchain technology.
 
 ## Submitted to
 
-Chainlink Virtual Hackathon Spring 2021
+* Chainlink Virtual Hackathon Spring 2021
+- Report url : https://devpost.com/software/korean-heritage-and-history-nft
 
 ## Inspiration
 
@@ -44,4 +45,15 @@ We have set up the next phase of this project as follows:
 
 We have established three major steps in this way, and if we achieve them, we assure that it will be an important and effective way to convey humanity's proud heritage to our descendants.
 
+## Testnet smart contract address
 
+* Testnet ethereum - Kovan
+* KHHN NFT Token smart contract 
+  - Address : 0x74dac257F63DA3d8A58ECcE49bacDC4cebe2aC19
+  - Address url : https://kovan.etherscan.io/token/0x74dac257F63DA3d8A58ECcE49bacDC4cebe2aC19
+* KHHN Mining pool smart contract
+  - Address : 0x43adA93BE01E21d284F48eB62ADa3546b7E98DbC
+  - Address url : https://kovan.etherscan.io/address/0x43adA93BE01E21d284F48eB62ADa3546b7E98DbC
+* KHHN NFT Swap pool smart contract
+  - Address : 0x4b0E264d3EBc3b1A7364442FBDdB44Ed5b154f32
+  - Address url : https://kovan.etherscan.io/address/0x4b0E264d3EBc3b1A7364442FBDdB44Ed5b154f32  

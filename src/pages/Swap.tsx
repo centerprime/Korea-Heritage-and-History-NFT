@@ -183,6 +183,15 @@ function Swap() {
                                 <p>Tx : <a href={'https://kovan.etherscan.io/tx/' + swapTx} target="_blank">SwapTx</a></p>) : (<p></p>)}
                         </div>
                     </div>
+                    <div className="select_tokken_area">
+
+                        <div className="tokken_id_001">
+                            01
+                        </div>
+                        <div className="tokken_id_002">
+                            01
+                        </div>
+                    </div>
                     {accounts && accounts.length ? (
                         isApproved ? <div className="button_swap" onClick={async () => {
                                 await swap();

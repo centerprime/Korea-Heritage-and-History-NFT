@@ -569,3 +569,35 @@ span#prevarr {
   margin-top: 125px;
   padding: 0 5px;
 }
+
+
+/*select_tokken_area*/
+.select_tokken_area{
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.select_tokken_area .tokken_id_001{
+  width: 25px;
+  line-height: 25px;
+  text-align: center;
+  align-items: center;
+  vertical-align: center;
+  background: rgba( 0, 0, 0, 0.5);
+  border: 1px solid grey;
+  margin: 5px;
+  cursor: pointer;
+}
+.select_tokken_area .tokken_id_002{
+  width: 25px;
+  line-height: 25px;
+  text-align: center;
+  align-items: center;
+  vertical-align: center;
+  background: rgba( 255, 255, 255, 0.5);
+  border: 1px solid darkgrey;
+  margin: 5px;
+  color: #000000;
+  cursor: pointer;
+}
