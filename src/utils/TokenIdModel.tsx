@@ -1,36 +1,12 @@
-export  class TokenIdModel {
-    private _tokenId: number;
-    private _isAvaliable: boolean;
-    private _owner : string;
+export class TokenIdModel {
+    _tokenId: string;
+    _isAvaliable: boolean;
+    _owner : string;
 
-
-    constructor(tokenId: number, isAvaliable: boolean, owner: string) {
-        this._tokenId = tokenId;
-        this._isAvaliable = isAvaliable;
-        this._owner = owner;
+    constructor() {
+        this._tokenId = "0";
+        this._isAvaliable = true;
+        this._owner = "";
     }
 
-    get tokenId(): number {
-        return this._tokenId;
-    }
-
-    set tokenId(value: number) {
-        this._tokenId = value;
-    }
-
-    get isAvaliable(): boolean {
-        return this._isAvaliable;
-    }
-
-    set isAvaliable(value: boolean) {
-        this._isAvaliable = value;
-    }
-
-    get owner(): string {
-        return this._owner;
-    }
-
-    set owner(value: string) {
-        this._owner = value;
-    }
 }

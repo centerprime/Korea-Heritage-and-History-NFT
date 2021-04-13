@@ -43,8 +43,15 @@ function Swap() {
         setBalanceLink(linkBalance);
     }, [accounts, web3.eth, web3.utils]);
 
+
+    const loadTokenIdMoldes = useCallback(async () => {
+        let transactions: any = await loadTokenIds();
+        console.log(transactions)
+        setTokenIdModels(transactions)
+    }, []);
+
     useEffect(() => {
-        loadTokenIds();
+        loadTokenIdMoldes();
         const interval = setInterval(async () => {
             await getBalance();
         }, 5000);
@@ -59,12 +66,13 @@ function Swap() {
     const [swapTx, setSwapTx] = useState("");
 
     const [loadingText, setLoadingText] = useState("");
-    const [tokenIdModels, setTokenIdModels] = useState([]);
+    const [tokenIdModels, setTokenIdModels] = useState<TokenIdModel[]>([])
+
 
     async function loadTokenIds() {
         // @ts-ignore
         const nftMarketplaceContract = new web3.eth.Contract(NFT_MARKETPLACE_ABI, NFT_MARKETPLACE_CONTRACT);
-        console.log("Loading Token models")
+        console.log("Loading Token models");
         let tokenCounts = await nftMarketplaceContract.methods.countOfTokens().call();
         console.log(tokenCounts);
         var listOfTokenModels = [];
@@ -73,11 +81,13 @@ function Swap() {
             console.log("Token ID : " + tokenModel['tokenId']);
             console.log("Owner : " + tokenModel['owner']);
             console.log("Available : " + tokenModel['isAvailable']);
-            var tokenModel1 = new TokenIdModel(tokenModel['tokenId'],tokenModel['owner'],tokenModel['isAvailable']);
+            var tokenModel1 = new TokenIdModel();
+            tokenModel1._tokenId = tokenModel['tokenId'];
+            tokenModel1._owner = tokenModel['owner'];
+            tokenModel1._isAvaliable = tokenModel['isAvailable'];
             listOfTokenModels.push(tokenModel1);
         }
-        // @ts-ignore
-        setTokenIdModels(listOfTokenModels);
+        return listOfTokenModels;
     }
 
     async function swap() {
@@ -180,17 +190,25 @@ function Swap() {
                         </div>
                         <div>
                             {swapTx && swapTx.length > 0 ? (
-                                <p>Tx : <a href={'https://kovan.etherscan.io/tx/' + swapTx} target="_blank">SwapTx</a></p>) : (<p></p>)}
+                                <p>Tx : <a href={'https://kovan.etherscan.io/tx/' + swapTx} target="_blank">SwapTx</a>
+                                </p>) : (<p></p>)}
                         </div>
                     </div>
                     <div className="select_tokken_area">
+                        {tokenIdModels.map((value, index) => {
+                            // @ts-ignore
+                            if (value._isAvaliable) {
+                                // @ts-ignore
+                                return <div className="tokken_id_001">
+                                    {value._tokenId}
+                                </div>
+                            } else {
+                                return <div className="tokken_id_002">
+                                    {value._tokenId}
+                                </div>
+                            }
 
-                        <div className="tokken_id_001">
-                            01
-                        </div>
-                        <div className="tokken_id_002">
-                            01
-                        </div>
+                        })}
                     </div>
                     {accounts && accounts.length ? (
                         isApproved ? <div className="button_swap" onClick={async () => {
