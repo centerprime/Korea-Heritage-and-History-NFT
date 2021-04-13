@@ -4,7 +4,7 @@ import featured_02 from '../images/featured-02.jpg';
 
 function Viewer() {
     return (
-        <div className="justify-content-center">
+        <div className="">
             <div id="page-content">
 
                 <div id="slide-container">
