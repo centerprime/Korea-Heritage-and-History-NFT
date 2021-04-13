@@ -1,5 +1,4 @@
 <img src="http://centerprime.technology/static/images/github/KHHN_background.jpg">
-# Korea Heritage and History NFT
 
 We did tokenization of Korea's nature Heritages and culture heritages by blockchain technology.
 
