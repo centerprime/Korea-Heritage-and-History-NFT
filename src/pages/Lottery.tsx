@@ -238,16 +238,15 @@ function Lottery() {
                                 <div>
                                     {loadingText}
                                 </div>
-                                <p>Your available Token Ids</p>
-                                <div className="select_tokken_area">
-                                    {tokenIdModels.map((value, index) => {
-                                        return <div className="tokken_id_001"
-                                                    onClick={() => onClickTokenId(value._tokenId)}>
-                                            {value._tokenId}
-                                        </div>
-                                    })}
-                                </div>
-
+                            </div>
+                            <p className="avaiblable_token">Your available Token Ids</p>
+                            <div className="select_tokken_area">
+                                {tokenIdModels.map((value, index) => {
+                                    return <div className="tokken_id_001"
+                                                onClick={() => onClickTokenId(value._tokenId)}>
+                                        {value._tokenId}
+                                    </div>
+                                })}
                             </div>
                             {accounts && accounts.length ? (
                                 isApproved ? <div className="button_swap" onClick={async () => {
@@ -284,8 +283,7 @@ function Lottery() {
                         <div className="hackahtun_title_002">
                             Step 2
                         </div>
-                        <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_002})`}}>
-                        </div>
+                        <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_002})`}}></div>
                         <p className="hackahtun_text_001">
                             18. Click Upload and you will see Loading…. DRAWING <br/>
                             19. Click Confirm and wait until disappearing Loading….. DRAWING
@@ -325,7 +323,6 @@ function Lottery() {
                         <p className="hackahtun_text_001">
                             23. If you want to disconnect wallet click Lock
                         </p>
-
                     </div>
                 </div>
             </div>

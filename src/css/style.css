@@ -611,3 +611,7 @@ span#prevarr {
   background-size: contain;
   border: 1px solid grey;
 }
+
+.avaiblable_token{
+  text-align: center;
+}

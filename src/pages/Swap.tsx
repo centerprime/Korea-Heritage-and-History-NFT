@@ -205,7 +205,7 @@ function Swap() {
                                                    target="_blank">SwapTx</a></p>) : (<p></p>)}
                                 </div>
                             </div>
-                            <p>Available Token Ids for purchase</p>
+                            <p className="avaiblable_token">Available Token Ids for purchase</p>
                             <div className="select_tokken_area">
                                 {tokenIdModels.map((value, index) => {
                                     // @ts-ignore
