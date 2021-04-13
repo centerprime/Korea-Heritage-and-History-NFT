@@ -86,7 +86,6 @@ function Main() {
                                 {accounts && accounts.length > 0 ? (
                                     <div className="connected_address">
                                         {accounts[0]}
-                                        <a href="#" onClick={disconnect} className="connect_button">Disconnect</a>
                                     </div>
                                 ) : !!networkId && providerName !== 'infura' ? (
                                     <a href="#" onClick={requestAccess} className="connect_button">Connect</a>

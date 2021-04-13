@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import '../css/style.css';
 import K_logo from '../images/K_logo.png';
 import swap_box from "../images/lottery.png";
@@ -17,8 +17,9 @@ import Dictionary, {
     LINK_KOVAN,
     ERC721_ABI,
     ERC721_CONTRACT,
-    NFT_MARKETPLACE_CONTRACT
+    NFT_MARKETPLACE_CONTRACT, NFT_MARKETPLACE_ABI
 } from "../utils/const";
+import {TokenIdModel} from "../utils/TokenIdModel";
 // // @ts-ignore
 // TOKEN_URI["6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"] = "https://www.youtube.com/watch?v=Ksp8Juzqw3w&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl"
 // TOKEN_URI["d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"] = "https://www.youtube.com/watch?v=2nO2CE2bcNQ&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=2"
@@ -47,9 +48,15 @@ function Lottery() {
     // Methods for requesting accounts access
     const requestAuth = (web3Context: any) => web3Context.requestAuth();
     const requestAccess = useCallback(() => requestAuth(web3Context), []);// Querying account balance
-    const [balanceEth, setBalanceEth] = useState("0");
-    const [balanceLink, setBalanceLink] = useState("0");
+
     const [isApproved, setApproved] = useState(true);
+    const [linkAmount, setLinkAmount] = useState('0.01');
+    const [khhnAmount, setKhhnAmount] = useState('0');
+    const [drawTx, setDrawTx] = useState("");
+    const [drawResult, setDrawResult] = useState("");
+    const [loadingText, setLoadingText] = useState("");
+    const [tokenIdModels, setTokenIdModels] = useState<TokenIdModel[]>([])
+
     const getBalance = useCallback(async () => {
         var ethBalance = "0";
         var linkBalance = "0";
@@ -69,18 +76,52 @@ function Lottery() {
             setApproved(Number.parseFloat(allowance) === 0);
 
         }
-        setBalanceEth(ethBalance);
-        setBalanceLink(linkBalance);
     }, [accounts, web3.eth, web3.utils]);
 
-    const [linkAmount, setLinkAmount] = useState('0.01');
-    const [khhnAmount, setKhhnAmount] = useState('0');
+    const loadTokenIdMoldesByOwner = useCallback(async () => {
+        let transactions: any = await loadTokenIdsByOwner();
+        console.log(transactions)
+        setTokenIdModels(transactions)
+    }, []);
 
-    const [drawTx, setDrawTx] = useState("");
+    useEffect(() => {
+        const interval = setInterval(async () => {
+            await getBalance();
+            let transactions: any = await loadTokenIdsByOwner();
+            console.log(transactions);
+            setTokenIdModels(transactions);
+        }, 5000);
+        return () => {
+            clearInterval(interval);
+        }
+    }, [accounts, getBalance, networkId]);
 
-    const [drawResult, setDrawResult] = useState("");
 
-    const [loadingText, setLoadingText] = useState("");
+    async function loadTokenIdsByOwner() {
+       await requestAuth(web3Context);
+        // @ts-ignore
+        const nftMarketplaceContract = new web3.eth.Contract(NFT_MARKETPLACE_ABI, NFT_MARKETPLACE_CONTRACT);
+        console.log("Loading Token models");
+        let tokenCounts = await nftMarketplaceContract.methods.countOfTokens().call();
+        console.log(tokenCounts);
+        var listOfOwnerTokenIds = [];
+        for (let i = 1; i <= tokenCounts; i++) {
+            let tokenModel = await nftMarketplaceContract.methods.tokenModelMapping(i).call();
+            let ownerOfTokenId = tokenModel['owner'];
+            console.log("Ownerr : " + ownerOfTokenId);
+            // @ts-ignore
+            console.log(accounts);
+            // @ts-ignore
+            if (accounts[0] === ownerOfTokenId) {
+                var tokenModel1 = new TokenIdModel();
+                tokenModel1._tokenId = tokenModel['tokenId'];
+                tokenModel1._owner = tokenModel['owner'];
+                tokenModel1._isAvaliable = tokenModel['isAvailable'];
+                listOfOwnerTokenIds.push(tokenModel1)
+            }
+        }
+        return listOfOwnerTokenIds;
+    }
 
     async function draw() {
         try {
@@ -158,6 +199,11 @@ function Lottery() {
     }
 
 
+    function onClickTokenId(tokenId: string) {
+        console.log("tokenId : " + tokenId);
+        setKhhnAmount(tokenId)
+    }
+
     return (
         <div className="row">
             <div className="col-lg-6">
@@ -192,6 +238,16 @@ function Lottery() {
                                 <div>
                                     {loadingText}
                                 </div>
+                                <p>Your available Token Ids</p>
+                                <div className="select_tokken_area">
+                                    {tokenIdModels.map((value, index) => {
+                                        return <div className="tokken_id_001"
+                                                    onClick={() => onClickTokenId(value._tokenId)}>
+                                            {value._tokenId}
+                                        </div>
+                                    })}
+                                </div>
+
                             </div>
                             {accounts && accounts.length ? (
                                 isApproved ? <div className="button_swap" onClick={async () => {
@@ -221,7 +277,7 @@ function Lottery() {
                         <p className="hackahtun_text_001">
                             15. Enter your Token ID then click Upload <br/>
                             16. You will see Loading….. Approve and MetaMask Popup <br/>
-                            17. Click Confirm and wait until disappearing  Loading….. Approve. Then click Upload again
+                            17. Click Confirm and wait until disappearing Loading….. Approve. Then click Upload again
                         </p>
                     </div>
                     <div className="guide_box">
@@ -232,7 +288,7 @@ function Lottery() {
                         </div>
                         <p className="hackahtun_text_001">
                             18. Click Upload and you will see Loading…. DRAWING <br/>
-                            19. Click Confirm and wait until disappearing  Loading….. DRAWING
+                            19. Click Confirm and wait until disappearing Loading….. DRAWING
                         </p>
                     </div>
                     <div className="guide_box">
@@ -242,7 +298,8 @@ function Lottery() {
                         <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_003})`}}>
                         </div>
                         <p className="hackahtun_text_001">
-                            20. This is result popup.(your Token ID does not match with Movie ID)  That means you lost try again :)
+                            20. This is result popup.(your Token ID does not match with Movie ID) That means you lost
+                            try again :)
                         </p>
                     </div>
                     <div className="guide_box">
@@ -252,7 +309,11 @@ function Lottery() {
                         <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_004})`}}>
                         </div>
                         <p className="hackahtun_text_001">
-                            21. This is success result popup. (your Token ID matches with Movie ID) Congratulations!!! :)
+                            21. This is success result popup. (your Token ID matches with Movie ID) Congratulations!!!
+                            :)
+                        </p>
+                        <p className="hackahtun_text_001">
+                            22. If you have success result , you will get reward 0.01 LINK token.
                         </p>
                     </div>
                     <div className="guide_box">
@@ -262,8 +323,9 @@ function Lottery() {
                         <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_005})`}}>
                         </div>
                         <p className="hackahtun_text_001">
-                            22. If you want to disconnect wallet click Lock
+                            23. If you want to disconnect wallet click Lock
                         </p>
+
                     </div>
                 </div>
             </div>
