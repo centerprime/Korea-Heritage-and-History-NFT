@@ -1,9 +1,9 @@
 export const LINK_KOVAN = "0xa36085F69e2889c224210F603D836748e7dC0088";
 export const INFURA_KOVAN = "https://kovan.infura.io/v3/a396c3461ac048a59f389c7778f06689";
 
-export const ERC721_CONTRACT = "0x74dac257F63DA3d8A58ECcE49bacDC4cebe2aC19";
-export const NFT_MARKETPLACE_CONTRACT = "0x4b0E264d3EBc3b1A7364442FBDdB44Ed5b154f32";
-export const CHAINLINK_VRF_CONTRACT = "0x43adA93BE01E21d284F48eB62ADa3546b7E98DbC";
+export const ERC721_CONTRACT = "0x64b8d3637650b985fFeA7dcA02B0186B87efaB96";
+export const NFT_MARKETPLACE_CONTRACT = "0x8413A40e900eEdA2Eb4bbD26C449e9733f17a3e8";
+export const CHAINLINK_VRF_CONTRACT = "0x8539a5519f0f294552Ee99eE393bCf84f69E3FC8";
 
 export const ERC20_ABI = [
     {
@@ -537,37 +537,7 @@ export const ERC721_ABI =[
     }
 ];
 
-export const NFT_MARKETPLACE_ABI =[
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_tokenId",
-                "type": "uint256"
-            }
-        ],
-        "name": "depositToken",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_tokenId",
-                "type": "uint256"
-            }
-        ],
-        "name": "purchaseTokenETH",
-        "outputs": [],
-        "payable": true,
-        "stateMutability": "payable",
-        "type": "function"
-    },
+export const NFT_MARKETPLACE_ABI = [
     {
         "inputs": [
             {
@@ -610,32 +580,6 @@ export const NFT_MARKETPLACE_ABI =[
         "type": "event"
     },
     {
-        "constant": false,
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_tokenId",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_amount",
-                "type": "uint256"
-            }
-        ],
-        "name": "purchaseTokenLink",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
         "anonymous": false,
         "inputs": [
             {
@@ -667,15 +611,6 @@ export const NFT_MARKETPLACE_ABI =[
         "type": "event"
     },
     {
-        "constant": false,
-        "inputs": [],
-        "name": "renounceOwnership",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
         "anonymous": false,
         "inputs": [
             {
@@ -701,48 +636,18 @@ export const NFT_MARKETPLACE_ABI =[
         "type": "event"
     },
     {
-        "constant": false,
-        "inputs": [
+        "constant": true,
+        "inputs": [],
+        "name": "countOfTokens",
+        "outputs": [
             {
                 "internalType": "uint256",
-                "name": "_currentPrice",
+                "name": "",
                 "type": "uint256"
             }
         ],
-        "name": "setCurrentPrice",
-        "outputs": [],
         "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_amount",
-                "type": "uint256"
-            }
-        ],
-        "name": "setTokenIdPriceByLink",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "newOwner",
-                "type": "address"
-            }
-        ],
-        "name": "transferOwnership",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -758,6 +663,21 @@ export const NFT_MARKETPLACE_ABI =[
         ],
         "payable": false,
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "depositToken",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
@@ -778,7 +698,28 @@ export const NFT_MARKETPLACE_ABI =[
     {
         "constant": true,
         "inputs": [],
-        "name": "gettTokenIdPriceByLink",
+        "name": "getTokenIdPriceByLink",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "indexOfTokenId",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -866,6 +807,117 @@ export const NFT_MARKETPLACE_ABI =[
         "type": "function"
     },
     {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "purchaseTokenETH",
+        "outputs": [],
+        "payable": true,
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "purchaseTokenLink",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_currentPrice",
+                "type": "uint256"
+            }
+        ],
+        "name": "setCurrentPrice",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "setTokenIdPriceByLink",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "tokenIdModels",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "isAvailable",
+                "type": "bool"
+            },
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "constant": true,
         "inputs": [],
         "name": "tokenIdPriceByLink",
@@ -874,6 +926,37 @@ export const NFT_MARKETPLACE_ABI =[
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "tokenModelMapping",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "isAvailable",
+                "type": "bool"
+            },
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
             }
         ],
         "payable": false,
@@ -899,6 +982,21 @@ export const NFT_MARKETPLACE_ABI =[
         ],
         "payable": false,
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
         "type": "function"
     }
 ];
@@ -1282,7 +1380,6 @@ export const CHAINLINK_VRF_CONTRACT_ABI =[
         "type": "function"
     }
 ];
-
 
 export interface IKeyCollection<T> {
     // @ts-ignore

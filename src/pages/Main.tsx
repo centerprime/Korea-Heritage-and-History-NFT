@@ -17,6 +17,7 @@ import Viewer from "./Viewer";
 import {useWeb3} from '@openzeppelin/network/react';
 import {ERC20_ABI, INFURA_KOVAN, LINK_KOVAN} from "../utils/const";
 import home_icons_001 from "../images/home_icons_001.png";
+import Web3 from "web3";
 
 function Main() {
 
@@ -30,6 +31,7 @@ function Main() {
     // Querying account balance
     const [balanceEth, setBalanceEth] = useState("0");
     const [balanceLink, setBalanceLink] = useState("0");
+
     const getBalance = useCallback(async () => {
         let ethBalance = "0";
         let linkBalance = "0";
@@ -51,6 +53,12 @@ function Main() {
     useEffect(() => {
         getBalance();
     }, [accounts, getBalance, networkId]);
+
+
+    function disconnect() {
+        console.log("Disconnecting")
+        // provider.disconnect()
+    }
 
     return (
         <div>
@@ -76,7 +84,10 @@ function Main() {
                             </div>
                             <div className="col-lg-1 connect_button_respons">
                                 {accounts && accounts.length > 0 ? (
-                                    <div className="connected_address">{accounts[0]}</div>
+                                    <div className="connected_address">
+                                        {accounts[0]}
+                                        <a href="#" onClick={disconnect} className="connect_button">Disconnect</a>
+                                    </div>
                                 ) : !!networkId && providerName !== 'infura' ? (
                                     <a href="#" onClick={requestAccess} className="connect_button">Connect</a>
                                 ) : (

@@ -14,6 +14,7 @@ import Dictionary, {
     ERC721_CONTRACT,
     NFT_MARKETPLACE_CONTRACT
 } from "../utils/const";
+import Web3 from "web3";
 // // @ts-ignore
 // TOKEN_URI["6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"] = "https://www.youtube.com/watch?v=Ksp8Juzqw3w&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl"
 // TOKEN_URI["d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"] = "https://www.youtube.com/watch?v=2nO2CE2bcNQ&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=2"
@@ -37,7 +38,10 @@ token_uri_map.add('8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99
 token_uri_map.add('e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb', 'https://www.youtube.com/watch?v=uDcJVY4iUoA&list=PLiIvEKksarFAOZRGqIRB2CxlVGlgIa9cl&index=17');
 
 function Lottery() {
-    const web3Context = useWeb3(INFURA_KOVAN);
+
+    var provider = new Web3.providers.HttpProvider(INFURA_KOVAN);
+    // @ts-ignore
+    const web3Context = useWeb3(provider);
     const {lib: web3, networkId, accounts, providerName} = web3Context;
     // Methods for requesting accounts access
     const requestAuth = (web3Context: any) => web3Context.requestAuth();
@@ -135,6 +139,7 @@ function Lottery() {
             if (randomResult_RequestId != 0) {
                 clearInterval(interval);
                 console.log("TokenId : " + tokenId);
+
                 // eslint-disable-next-line eqeqeq
                 if (randomResult_RequestId == tokenId) {
                     var tokenURI = await nftErc721Contract.methods.tokenURI(tokenId).call();
@@ -142,8 +147,9 @@ function Lottery() {
                     var youtubeURL = token_uri_map.getItem(tokenURI);
                     console.log("TokenURI youtube url : " + youtubeURL);
                     // eslint-disable-next-line no-useless-concat
-                    alert("SUCCESS\n" + " Youtube URL : " + youtubeURL);
+                    alert("Your Token ID :  " + tokenId + " Movie ID : " + randomResult_RequestId + " SUCCESS\n" + " Youtube URL : " + youtubeURL);
                 } else {
+                    // eslint-disable-next-line no-useless-concat
                     alert("NOT MATCH\n" + "Token ID : " + tokenId + " MovieID : " + randomResult_RequestId)
                 }
 

@@ -8,6 +8,7 @@ import header_bg_001 from "../images/header_bg_001.png";
 import swap_box from "../images/swap.png";
 import {useWeb3} from "@openzeppelin/network/lib/react";
 import {ERC20_ABI, INFURA_KOVAN, LINK_KOVAN, NFT_MARKETPLACE_ABI, NFT_MARKETPLACE_CONTRACT} from "../utils/const";
+import {TokenIdModel} from "../utils/TokenIdModel";
 
 function Swap() {
     const web3Context = useWeb3(INFURA_KOVAN);
@@ -43,6 +44,7 @@ function Swap() {
     }, [accounts, web3.eth, web3.utils]);
 
     useEffect(() => {
+        loadTokenIds();
         const interval = setInterval(async () => {
             await getBalance();
         }, 5000);
@@ -57,6 +59,26 @@ function Swap() {
     const [swapTx, setSwapTx] = useState("");
 
     const [loadingText, setLoadingText] = useState("");
+    const [tokenIdModels, setTokenIdModels] = useState([]);
+
+    async function loadTokenIds() {
+        // @ts-ignore
+        const nftMarketplaceContract = new web3.eth.Contract(NFT_MARKETPLACE_ABI, NFT_MARKETPLACE_CONTRACT);
+        console.log("Loading Token models")
+        let tokenCounts = await nftMarketplaceContract.methods.countOfTokens().call();
+        console.log(tokenCounts);
+        var listOfTokenModels = [];
+        for (let i = 1; i <= tokenCounts; i++) {
+            let tokenModel = await nftMarketplaceContract.methods.tokenModelMapping(i).call();
+            console.log("Token ID : " + tokenModel['tokenId']);
+            console.log("Owner : " + tokenModel['owner']);
+            console.log("Available : " + tokenModel['isAvailable']);
+            var tokenModel1 = new TokenIdModel(tokenModel['tokenId'],tokenModel['owner'],tokenModel['isAvailable']);
+            listOfTokenModels.push(tokenModel1);
+        }
+        // @ts-ignore
+        setTokenIdModels(listOfTokenModels);
+    }
 
     async function swap() {
         try {
