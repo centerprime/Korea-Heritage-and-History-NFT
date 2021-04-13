@@ -20,7 +20,7 @@ interface IERC20 {
 }
 
 
-contract CenterprimeLotteryPool is VRFConsumerBase {
+contract CenterprimeMiningPool is VRFConsumerBase {
     bytes32 internal keyHash;
     uint256 internal fee;
     // random Movie Id
