@@ -24,7 +24,7 @@ In order to achieve the purpose of preservation and protection of the establishe
 * Tokenization of heritage assets
 * Chaining of heritage asset certificates
 * Compensation through the asset mining pool
-* Donation through the estate asset swap pool
+* Donation through the heritage asset swap pool
 
 ## Accomplishments that we're proud of
 
