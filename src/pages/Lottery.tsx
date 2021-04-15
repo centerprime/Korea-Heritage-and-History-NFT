@@ -215,8 +215,14 @@ function Lottery() {
                                     KHHN Mining
                                 </div>
                                 <div className="MINING_viewer">
-                                    KHHN MINING Viewer
-                                    <div className="MINING_viewer_change" id="panel"></div>
+                                    <iframe width="342" height="145" src="https://www.youtube.com/embed/byGVXvBtj9w"
+                                            title="YouTube video player" frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen></iframe>
+                                    <div className="MINING_viewer_change" id="panel">
+
+                                    </div>
+
                                 </div>
 
                                 <div className="swap_address_box">
