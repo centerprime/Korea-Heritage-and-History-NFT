@@ -615,3 +615,6 @@ span#prevarr {
 .avaiblable_token{
   text-align: center;
 }
+.loading{
+  position: absolute;
+}

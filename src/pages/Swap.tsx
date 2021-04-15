@@ -9,10 +9,10 @@ import swap_box from "../images/swap.png";
 import {useWeb3} from "@openzeppelin/network/lib/react";
 import {ERC20_ABI, INFURA_KOVAN, LINK_KOVAN, NFT_MARKETPLACE_ABI, NFT_MARKETPLACE_CONTRACT} from "../utils/const";
 import {TokenIdModel} from "../utils/TokenIdModel";
-import swap_guide_001 from "../images/swap_guide_001.png";
-import swap_guide_002 from "../images/swap_guide_002.png";
-import swap_guide_003 from "../images/swap_guide_003.png";
-import swap_guide_004 from "../images/swap_guide_004.png";
+import swap_guide_001 from "../images/swap1.png";
+import swap_guide_002 from "../images/swap2.png";
+import swap_guide_003 from "../images/swap3.png";
+import swap_guide_004 from "../images/swap4.png";
 
 function Swap() {
     const web3Context = useWeb3(INFURA_KOVAN);
@@ -196,10 +196,10 @@ function Swap() {
                                         </div>
                                     </div>
                                 </div>
-                                <div>
+                                <div className="loading">
                                     {loadingText}
                                 </div>
-                                <div>
+                                <div className="loading">
                                     {swapTx && swapTx.length > 0 ? (
                                         <p>Tx : <a href={'https://kovan.etherscan.io/tx/' + swapTx}
                                                    target="_blank">SwapTx</a></p>) : (<p></p>)}
@@ -253,7 +253,8 @@ function Swap() {
                             (If you have no LINK yet you have to get it first. As well as ETH for gas fee)<br/>
                             05. This 0.01 LINK is fixed amount<br/>
                             06. This is Token ID. You can choose any random number from ‘1’ to ’15’<br/>
-                            07. This is KHHN NFT Token
+                            07. This is KHHN NFT Token<br/>
+                            08. This is available Token Ids for purchase
                         </p>
                     </div>
                     <div className="guide_box">
@@ -263,9 +264,9 @@ function Swap() {
                         <div className="guide_box_image" style={{backgroundImage: `url(${swap_guide_002})`}}>
                         </div>
                         <p className="hackahtun_text_001">
-                            08. Click Swap <br/>
-                            09. You will see Loading….. Approve and MetaMask Popup <br/>
-                            10. Click Confirm and wait until disappearing Loading….. Approve. Then click Swap again </p>
+                            09. Click Swap <br/>
+                            10. You will see Loading….. Approve and MetaMask Popup <br/>
+                            11. Click Confirm and wait until disappearing Loading….. Approve. Then click Swap again </p>
                     </div>
                     <div className="guide_box">
                         <div className="hackahtun_title_002">
@@ -274,8 +275,8 @@ function Swap() {
                         <div className="guide_box_image" style={{backgroundImage: `url(${swap_guide_003})`}}>
                         </div>
                         <p className="hackahtun_text_001">
-                            11. Click Swap and you will see Loading…. SWAP <br/>
-                            12. Click Confirm and wait until disappearing Loading….. SWAP </p>
+                            12. Click Swap and you will see Loading…. SWAP <br/>
+                            13. Click Confirm and wait until disappearing Loading….. SWAP </p>
                     </div>
                     <div className="guide_box">
                         <div className="hackahtun_title_002">
@@ -284,7 +285,7 @@ function Swap() {
                         <div className="guide_box_image" style={{backgroundImage: `url(${swap_guide_004})`}}>
                         </div>
                         <p className="hackahtun_text_001">
-                            13. After Confirm you will see SwapTx You can check your transaction by clicking SwapTx
+                            14. After Confirm you will see SwapTx You can check your transaction by clicking SwapTx
                             (that link direct you https://kovan.etherscan.io/tx/) </p>
                     </div>
                 </div>

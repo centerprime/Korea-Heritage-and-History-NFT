@@ -2,11 +2,11 @@ import React, {useCallback, useEffect, useState} from 'react';
 import '../css/style.css';
 import K_logo from '../images/K_logo.png';
 import swap_box from "../images/lottery.png";
-import mining_guide_001 from "../images/mining_guide_001.png";
-import mining_guide_002 from "../images/mining_guide_002.png";
-import mining_guide_003 from "../images/mining_guide_003.png";
-import mining_guide_004 from "../images/mining_guide_004.png";
-import mining_guide_005 from "../images/mining_guide_005.png";
+import mining_guide_001 from "../images/maining1.png";
+import mining_guide_002 from "../images/maining2.png";
+import mining_guide_003 from "../images/maining3.png";
+import mining_guide_004 from "../images/maining4.png";
+import mining_guide_005 from "../images/maining5.png";
 import {useWeb3} from "@openzeppelin/network/lib/react";
 
 import Dictionary, {
@@ -241,7 +241,7 @@ function Lottery() {
                                         </div>
                                     </div>
                                 </div>
-                                <div>
+                                <div className="loading">
                                     {loadingText}
                                 </div>
                             </div>
@@ -280,9 +280,10 @@ function Lottery() {
                         <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_001})`}}>
                         </div>
                         <p className="hackahtun_text_001">
-                            15. Enter your Token ID then click Upload <br/>
-                            16. You will see Loading….. Approve and MetaMask Popup <br/>
-                            17. Click Confirm and wait until disappearing Loading….. Approve. Then click Upload again
+                            15. Select your available Token Id  <br/>
+                            16. Click Upload<br/>
+                            17. You will see Loading….. Approve and MetaMask Popup <br/>
+                            18. Click Confirm and wait until disappearing Loading….. Approve. Then click Upload again
                         </p>
                     </div>
                     <div className="guide_box">
@@ -291,8 +292,8 @@ function Lottery() {
                         </div>
                         <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_002})`}}></div>
                         <p className="hackahtun_text_001">
-                            18. Click Upload and you will see Loading…. DRAWING <br/>
-                            19. Click Confirm and wait until disappearing Loading….. DRAWING
+                            19. Click Upload and you will see Loading…. DRAWING <br/>
+                            20. Click Confirm and wait until disappearing Loading….. DRAWING
                         </p>
                     </div>
                     <div className="guide_box">
@@ -302,7 +303,7 @@ function Lottery() {
                         <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_003})`}}>
                         </div>
                         <p className="hackahtun_text_001">
-                            20. This is result popup.(your Token ID does not match with Movie ID) That means you lost
+                            21. This is result popup.(your Token ID does not match with Movie ID) That means you lost
                             try again :)
                         </p>
                     </div>
@@ -313,11 +314,11 @@ function Lottery() {
                         <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_004})`}}>
                         </div>
                         <p className="hackahtun_text_001">
-                            21. This is success result popup. (your Token ID matches with Movie ID) Congratulations!!!
+                            22. This is success result popup. (your Token ID matches with Movie ID) Congratulations!!!
                             :)
                         </p>
                         <p className="hackahtun_text_001">
-                            22. If you have success result , you will get reward 0.01 LINK token.
+                            23. If you have success result , you will get reward 0.01 LINK token.
                         </p>
                     </div>
                     <div className="guide_box">
@@ -327,7 +328,7 @@ function Lottery() {
                         <div className="guide_box_image" style={{backgroundImage: `url(${mining_guide_005})`}}>
                         </div>
                         <p className="hackahtun_text_001">
-                            23. If you want to disconnect wallet click Lock
+                            24. If you want to disconnect wallet click Lock
                         </p>
                     </div>
                 </div>
