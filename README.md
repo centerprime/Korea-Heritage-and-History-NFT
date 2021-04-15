@@ -45,6 +45,8 @@ We have set up the next phase of this project as follows:
 
 We have established three major steps in this way, and if we achieve them, we assure that it will be an important and effective way to convey humanity's proud heritage to our descendants.
 
+## Demo site
+* http://3.236.231.250
 ## Testnet smart contract address
 
 * Testnet ethereum - Kovan
